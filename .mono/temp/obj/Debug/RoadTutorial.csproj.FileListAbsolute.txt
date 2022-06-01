@@ -1,0 +1,8 @@
+C:\Users\animeman\Documents\RoadTutorial\.mono\temp\bin\Debug\RoadTutorial.dll
+C:\Users\animeman\Documents\RoadTutorial\.mono\temp\bin\Debug\RoadTutorial.pdb
+C:\Users\animeman\Documents\RoadTutorial\.mono\temp\obj\Debug\RoadTutorial.csprojAssemblyReference.cache
+C:\Users\animeman\Documents\RoadTutorial\.mono\temp\obj\Debug\RoadTutorial.AssemblyInfoInputs.cache
+C:\Users\animeman\Documents\RoadTutorial\.mono\temp\obj\Debug\RoadTutorial.AssemblyInfo.cs
+C:\Users\animeman\Documents\RoadTutorial\.mono\temp\obj\Debug\RoadTutorial.csproj.CoreCompileInputs.cache
+C:\Users\animeman\Documents\RoadTutorial\.mono\temp\obj\Debug\RoadTutorial.dll
+C:\Users\animeman\Documents\RoadTutorial\.mono\temp\obj\Debug\RoadTutorial.pdb
