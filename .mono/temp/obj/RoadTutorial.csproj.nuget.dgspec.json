@@ -1,21 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\animeman\\Documents\\RoadTutorial\\RoadTutorial.csproj": {}
+    "C:\\Users\\Mitch\\Documents\\GitHub\\RoadBuilder\\RoadTutorial.csproj": {}
   },
   "projects": {
-    "C:\\Users\\animeman\\Documents\\RoadTutorial\\RoadTutorial.csproj": {
+    "C:\\Users\\Mitch\\Documents\\GitHub\\RoadBuilder\\RoadTutorial.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\animeman\\Documents\\RoadTutorial\\RoadTutorial.csproj",
+        "projectUniqueName": "C:\\Users\\Mitch\\Documents\\GitHub\\RoadBuilder\\RoadTutorial.csproj",
         "projectName": "RoadTutorial",
-        "projectPath": "C:\\Users\\animeman\\Documents\\RoadTutorial\\RoadTutorial.csproj",
-        "packagesPath": "C:\\Users\\animeman\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\animeman\\Documents\\RoadTutorial\\.mono\\temp\\obj\\",
+        "projectPath": "C:\\Users\\Mitch\\Documents\\GitHub\\RoadBuilder\\RoadTutorial.csproj",
+        "packagesPath": "C:\\Users\\Mitch\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Mitch\\Documents\\GitHub\\RoadBuilder\\.mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\animeman\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Mitch\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net472"
@@ -26,6 +30,7 @@
         },
         "frameworks": {
           "net472": {
+            "targetAlias": "net472",
             "projectReferences": {}
           }
         },
@@ -37,7 +42,8 @@
       },
       "frameworks": {
         "net472": {
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.414\\RuntimeIdentifierGraph.json"
+          "targetAlias": "net472",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

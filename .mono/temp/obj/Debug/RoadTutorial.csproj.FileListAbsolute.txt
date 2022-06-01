@@ -6,3 +6,12 @@ C:\Users\animeman\Documents\RoadTutorial\.mono\temp\obj\Debug\RoadTutorial.Assem
 C:\Users\animeman\Documents\RoadTutorial\.mono\temp\obj\Debug\RoadTutorial.csproj.CoreCompileInputs.cache
 C:\Users\animeman\Documents\RoadTutorial\.mono\temp\obj\Debug\RoadTutorial.dll
 C:\Users\animeman\Documents\RoadTutorial\.mono\temp\obj\Debug\RoadTutorial.pdb
+C:\Users\Mitch\Documents\GitHub\RoadBuilder\.mono\temp\bin\Debug\RoadTutorial.dll
+C:\Users\Mitch\Documents\GitHub\RoadBuilder\.mono\temp\bin\Debug\RoadTutorial.pdb
+C:\Users\Mitch\Documents\GitHub\RoadBuilder\.mono\temp\obj\Debug\RoadTutorial.csproj.AssemblyReference.cache
+C:\Users\Mitch\Documents\GitHub\RoadBuilder\.mono\temp\obj\Debug\RoadTutorial.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mitch\Documents\GitHub\RoadBuilder\.mono\temp\obj\Debug\RoadTutorial.AssemblyInfoInputs.cache
+C:\Users\Mitch\Documents\GitHub\RoadBuilder\.mono\temp\obj\Debug\RoadTutorial.AssemblyInfo.cs
+C:\Users\Mitch\Documents\GitHub\RoadBuilder\.mono\temp\obj\Debug\RoadTutorial.csproj.CoreCompileInputs.cache
+C:\Users\Mitch\Documents\GitHub\RoadBuilder\.mono\temp\obj\Debug\RoadTutorial.dll
+C:\Users\Mitch\Documents\GitHub\RoadBuilder\.mono\temp\obj\Debug\RoadTutorial.pdb

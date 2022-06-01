@@ -29,6 +29,7 @@ public class PathSpawner : StaticBody
     private bool pathConnectMinusX = false;
     private bool pathConnectMinusZ = false;
     bool updating = true;
+    bool removing = false;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -52,6 +53,8 @@ public class PathSpawner : StaticBody
         base._PhysicsProcess(delta);
         if(updating){
             InitialSetPath();
+        }if(removing){
+            QueueFree();
         }
     }
 
@@ -177,10 +180,9 @@ public class PathSpawner : StaticBody
     }
 
     public async void RemoveObject(){
-       setObjectsAroundSpawner();
-        updateObjectsAroundSpawner();
-        
-        QueueFree();
+       updating = true;
+        removing = true;
+        //QueueFree();
     }
 
 }
