@@ -30,6 +30,7 @@ public class PathSpawner : StaticBody
     private bool pathConnectMinusZ = false;
     bool updating = true;
     bool removing = false;
+    bool readyToRemove = false;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -53,9 +54,14 @@ public class PathSpawner : StaticBody
         base._PhysicsProcess(delta);
         if(updating){
             InitialSetPath();
-        }if(removing){
+        }if(readyToRemove){
             QueueFree();
+        }else if(removing){
+            GetNode<CollisionShape>("CollisionShape").Disabled = true;
+            setObjectsAroundSpawner();
+            updateObjectsAroundSpawner();
         }
+        
     }
 
     public async void InitialSetPath(){
@@ -63,6 +69,9 @@ public class PathSpawner : StaticBody
         setPath();
         updateObjectsAroundSpawner();
         updating = false;
+        if(removing)
+            readyToRemove = true;
+        
     }
 
     private void updateObjectsAroundSpawner(){
@@ -163,10 +172,10 @@ public class PathSpawner : StaticBody
                         new Godot.Collections.Array { this });
         GD.Print(result);
         if(result.Contains("collider")){
-        if(result["collider"] is PathSpawner){
-            objectConnected = true;
-            return result["collider"] as PathSpawner;
-        }
+            if(result["collider"] is PathSpawner){
+                objectConnected = true;
+                return result["collider"] as PathSpawner;
+            }
         }
         // if(rayCast.IsColliding()){
         //     if(rayCast.GetCollider() is PathSpawner){
