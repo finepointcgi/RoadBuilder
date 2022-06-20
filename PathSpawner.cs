@@ -7,10 +7,6 @@ public class PathSpawner : StaticBody
     // Declare member variables here. Examples:
     // private int a = 2;
     // private string b = "text";
-    private RayCast xRaycast;
-    private RayCast minusXRaycast;
-    private RayCast zRaycast;
-    private RayCast minusZRaycast;
     [Export]
     public PackedScene PathObject;
     [Export]
@@ -35,10 +31,6 @@ public class PathSpawner : StaticBody
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        zRaycast = GetNode<RayCast>("ZRayCast");
-        xRaycast = GetNode<RayCast>("XRayCast");
-        minusXRaycast = GetNode<RayCast>("MinusXRaycast");
-        minusZRaycast = GetNode<RayCast>("MinusZRaycast");
         SpawnUnder = GetNode<Spatial>("SpawnUnder");
         
     }
@@ -102,11 +94,6 @@ public class PathSpawner : StaticBody
 
     private void setPath(){  
 
-        zRaycast.Enabled = true;
-        xRaycast.Enabled = true;
-        minusXRaycast.Enabled = true;
-        minusZRaycast.Enabled = true;
-
         foreach (Spatial item in SpawnUnder.GetChildren())
         {
             item.QueueFree();
@@ -166,7 +153,6 @@ public class PathSpawner : StaticBody
     }
 
     private PathSpawner raycastForObject(Vector3 rayCastpos, out bool objectConnected){
-        //rayCast.ForceRaycastUpdate();
         var spaceState = GetWorld().DirectSpaceState;
         Godot.Collections.Dictionary result = spaceState.IntersectRay(Translation, Translation + rayCastpos,
                         new Godot.Collections.Array { this });
@@ -177,13 +163,6 @@ public class PathSpawner : StaticBody
                 return result["collider"] as PathSpawner;
             }
         }
-        // if(rayCast.IsColliding()){
-        //     if(rayCast.GetCollider() is PathSpawner){
-        //         PathSpawner collider = rayCast.GetCollider() as PathSpawner;
-        //         objectConnected = true;
-        //         return collider;
-        //     }
-        // }
         objectConnected = false;
         return null;   
     }
@@ -191,7 +170,11 @@ public class PathSpawner : StaticBody
     public async void RemoveObject(){
        updating = true;
         removing = true;
-        //QueueFree();
+    }
+
+    public void MoveObject(Vector3 position){
+        updating = true;
+        Translation = position;
     }
 
 }

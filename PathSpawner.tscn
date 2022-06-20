@@ -21,34 +21,6 @@ PathFourwayObject = ExtResource( 3 )
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 1 )
 
-[node name="MinusXRaycast" type="RayCast" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.902625, 0, 0 )
-enabled = true
-cast_to = Vector3( -0.5, 0, 0 )
-collision_mask = 2
-debug_shape_custom_color = Color( 1, 0, 0, 1 )
-
-[node name="XRayCast" type="RayCast" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.79496, -0.00416672, 0.00840563 )
-enabled = true
-cast_to = Vector3( 0.5, 0, 0 )
-collision_mask = 2
-debug_shape_custom_color = Color( 1, 0, 0, 1 )
-
-[node name="MinusZRaycast" type="RayCast" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0140531, 0, -0.828676 )
-enabled = true
-cast_to = Vector3( 0, 0, -0.5 )
-collision_mask = 2
-debug_shape_custom_color = Color( 1, 0, 0, 1 )
-
-[node name="ZRayCast" type="RayCast" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0140531, 0, 0.851877 )
-enabled = true
-cast_to = Vector3( 0, 0, 0.5 )
-collision_mask = 2
-debug_shape_custom_color = Color( 1, 0, 0, 1 )
-
 [node name="SpawnUnder" type="Spatial" parent="."]
 
 [node name="PathTurn" parent="SpawnUnder" instance=ExtResource( 4 )]

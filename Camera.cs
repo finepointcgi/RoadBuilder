@@ -10,30 +10,36 @@ public class Camera : Godot.Camera
     [Export]
     public PackedScene PathSpawnerObj;
     private PathSpawner selectedNode;
+    private bool moving;
     public override void _Ready()
     {
         
     }
 
     //  // Called every frame. 'delta' is the elapsed time since the previous frame.
-    //  public override void _Process(float delta)
-    //  {
-    //      
-    //  }
+     public override void _Process(float delta)
+     {
+
+        if (selectedNode != null && moving)
+        {
+            Vector3 positionToMove = (Vector3)getRayCast()["position"];
+            Vector3 snappedPositionToMove = new Vector3(Mathf.Round(positionToMove.x), positionToMove.y, Mathf.Round(positionToMove.z));
+            selectedNode.MoveObject(snappedPositionToMove);
+        }
+     
+     }
 
     public override void _Input(InputEvent @event)
     {
         base._Input(@event);
 
         if(@event is InputEventMouseButton && @event.IsPressed()){
-            PhysicsDirectSpaceState spaceState = GetWorld().DirectSpaceState;
-            Vector2 mousePos = GetViewport().GetMousePosition();
-            Vector3 rayOrigin = ProjectRayOrigin(mousePos);
-            Vector3 rayEnd = rayOrigin + ProjectRayNormal(mousePos) * 2000;
-            Godot.Collections.Dictionary intersection = spaceState.IntersectRay(rayOrigin, rayEnd);
+            Godot.Collections.Dictionary intersection = getRayCast();
             if(intersection.Contains("collider")){
                 if(intersection["collider"] is PathSpawner){
                     selectedNode = intersection["collider"] as PathSpawner;
+                    selectedNode.GetNode<CollisionShape>("CollisionShape").Disabled = true;
+                    moving = true;
                 }else{
                     PathSpawner spawner = PathSpawnerObj.Instance() as PathSpawner;
                     GetTree().GetRoot().AddChild(spawner);
@@ -41,6 +47,21 @@ public class Camera : Godot.Camera
                     GD.Print(SnapTo(positionToMove, 1));
                     spawner.Translation = SnapTo(positionToMove, 1);
                     selectedNode = spawner;
+                    selectedNode.GetNode<CollisionShape>("CollisionShape").Disabled = true;
+                    moving = true;
+                    
+                }
+            }
+            
+        }else if (@event is InputEventMouseButton && !@event.IsPressed())
+        {
+            if ((@event as InputEventMouseButton).ButtonIndex == 1)
+            {
+                if (selectedNode != null)
+                {
+                    selectedNode.GetNode<CollisionShape>("CollisionShape").Disabled = false;
+                    selectedNode = null;
+                    moving = false;
                 }
             }
         }
@@ -53,5 +74,13 @@ public class Camera : Godot.Camera
         if(selectedNode != null){
             selectedNode.RemoveObject();
         }
+    }
+
+    public Godot.Collections.Dictionary getRayCast(){
+        PhysicsDirectSpaceState spaceState = GetWorld().DirectSpaceState;
+        Vector2 mousePos = GetViewport().GetMousePosition();
+        Vector3 rayOrigin = ProjectRayOrigin(mousePos);
+        Vector3 rayEnd = rayOrigin + ProjectRayNormal(mousePos) * 2000;
+        return spaceState.IntersectRay(rayOrigin, rayEnd);
     }
 }   
